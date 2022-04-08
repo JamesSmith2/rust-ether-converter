@@ -29,6 +29,11 @@ pub fn convert<'a>(value: &str, unit: &'a str) -> HashMap<&'a str, String> {
     return map;
 }
 
+pub fn ether(value: &str, unit: &str) -> String {
+    let e = to_ether(value, unit);
+    s(&e, "1")
+}
+
 pub fn to_ether(value: &str, unit: &str) -> BigDecimal {
     let v = BigDecimal::from_str(&value).unwrap();
 
