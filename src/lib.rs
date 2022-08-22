@@ -12,7 +12,7 @@ pub fn convert<'a>(value: &str, unit: &'a str) -> HashMap<&'a str, String> {
     let v = to_ether(value, unit);
     let mut map: HashMap<&'a str, String> = HashMap::new();
 
-    map.insert(unit, BigDecimal::from_str(&value).unwrap().to_string());
+    map.insert(unit, BigDecimal::from_str(&value).unwrap_or_default().to_string());
 
     if unit != "wei"    { map.insert("wei",    s(&v, "1000000000000000000")); }
     if unit != "kwei"   { map.insert("kwei",   s(&v, "1000000000000000")); }
