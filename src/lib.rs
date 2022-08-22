@@ -35,7 +35,7 @@ pub fn ether(value: &str, unit: &str) -> String {
 }
 
 pub fn to_ether(value: &str, unit: &str) -> BigDecimal {
-    let v = BigDecimal::from_str(&value).unwrap();
+    let v = BigDecimal::from_str(&value).unwrap_or_default();
 
     if unit == "wei"    { return m(&v, "0.000000000000000001") }
     if unit == "kwei"   { return m(&v, "0.000000000000001") }
